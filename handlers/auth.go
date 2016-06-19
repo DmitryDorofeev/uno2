@@ -4,19 +4,8 @@ import (
 	"net/http"
 	"encoding/json"
 	"github.com/satori/go.uuid"
-	"database/sql"
-	_ "github.com/mattn/go-sqlite3"
 	"fmt"
 )
-
-var db *sql.DB
-
-func InitDb() {
-	var err error
-	db, err = sql.Open("sqlite3", "./db.sqlite")
-	if err != nil { panic(err) }
-	if db == nil { panic("db nil") }
-}
 
 type ProfileResponse struct {
 	Login string `json:"login"`
