@@ -1,11 +1,11 @@
 package handlers
 
 import (
-	"net/http"
+	"database/sql"
 	"encoding/json"
 	"github.com/satori/go.uuid"
-	"database/sql"
 	"log"
+	"net/http"
 )
 
 type ProfileResponse struct {
@@ -19,9 +19,9 @@ func HandleProfile(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 		userId := uuid.NewV4()
 
 		cookie = &http.Cookie{
-			Name: "user",
-			Value: userId.String(),
-			Path: "/",
+			Name:     "user",
+			Value:    userId.String(),
+			Path:     "/",
 			HttpOnly: false,
 		}
 
