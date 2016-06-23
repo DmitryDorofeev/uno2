@@ -4,7 +4,8 @@ import (
 	"net/http"
 	"encoding/json"
 	"github.com/satori/go.uuid"
-	"fmt"
+	"database/sql"
+	"log"
 )
 
 type ProfileResponse struct {
@@ -12,7 +13,7 @@ type ProfileResponse struct {
 	Email string `json:"email"`
 }
 
-func HandleProfile(w http.ResponseWriter, r *http.Request) {
+func HandleProfile(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	cookie, err := r.Cookie("user")
 	if err != nil {
 		userId := uuid.NewV4()
@@ -24,7 +25,7 @@ func HandleProfile(w http.ResponseWriter, r *http.Request) {
 			HttpOnly: false,
 		}
 
-		fmt.Println("Cookie", cookie.Value, r.Host)
+		log.Println("Cookie", cookie.Value, r.Host)
 		http.SetCookie(w, cookie)
 	}
 
