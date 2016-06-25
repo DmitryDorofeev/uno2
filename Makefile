@@ -1,5 +1,4 @@
 all: get build
-	
 
 run:
 	go run main/main.go
@@ -12,3 +11,7 @@ get:
 	go get github.com/satori/go.uuid
 	go get github.com/go-martini/martini
 	go get github.com/mattn/go-sqlite3
+
+install:
+	cp build/uno /usr/local/bin/uno
+	cp build/init.sh /etc/init.d/uno
