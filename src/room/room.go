@@ -2,7 +2,7 @@ package room
 
 import (
 	"github.com/gorilla/websocket"
-	"../utils"
+	"utils"
 	"log"
 )
 

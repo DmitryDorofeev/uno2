@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"github.com/gorilla/websocket"
 	"log"
-	"../utils"
-	"../wshandlers"
-	"../room"
+	"utils"
+	"wshandlers"
+	"room"
 )
 
 var rooms = map[int][]room.Room{

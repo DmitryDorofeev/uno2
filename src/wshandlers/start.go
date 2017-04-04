@@ -2,8 +2,8 @@ package wshandlers
 
 import (
 	"github.com/gorilla/websocket"
-	"../utils"
-	"../room"
+	"utils"
+	"room"
 	"log"
 )
 

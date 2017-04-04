@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/go-martini/martini"
-	"../handlers"
+	"handlers"
 	"database/sql"
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -24,8 +24,8 @@ func main() {
 	// })
 
 	m.Group(`/auth`, func(r martini.Router) {
-		r.Get(`/profile`, handlers.HandleProfile)
-		r.Get(`/login`, handlers.HandleLogin)
+		r.Get(`/`, handlers.HandleProfile)
+		r.Put(`/`, handlers.HandleLogin)
 	})
 
 	m.Get(`/user`, handlers.HandleWs)
